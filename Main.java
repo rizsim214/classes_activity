@@ -24,12 +24,10 @@ public class Main {
             System.out.println("Enter Car " + x + "'s Initial Gas: ");
             double gas = scan.nextDouble();
             cars[i] = new Car(name, model, brand, year, location, gas);
+            cars[i].displayCarInfo();
+            System.out.println("\n");
         }
-
-        for(byte j = 0; j < cars.length; j++){
-            System.out.print("\n");
-            cars[j].displayCarInfo();
-        }
+       
         System.out.println();
         System.out.print("Enter name of the car you want to use to travel:  ");
         String carName = scan.next().toLowerCase();
@@ -40,12 +38,12 @@ public class Main {
         scan.close();
 
         for(int k = 0; k < cars.length; k++){
-            if(cars[k].getName() == carName){
+            if(cars[k].getName().equals(carName)){
                 cars[k].travel(destination, distance);
             }
         }
-        
-        
+            
         System.out.println("End of Program....");
     }
+   
 }
